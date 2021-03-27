@@ -3,6 +3,8 @@ package com.miracle.service.api;
 import com.miracle.entity.Admin;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author Miracle
  * @version v1.0
@@ -15,4 +17,6 @@ public interface AdminService {
      * @param admin Admin
      */
     void saveAdmin(Admin admin);
+
+    List<Admin> getAll();
 }

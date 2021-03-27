@@ -4,10 +4,12 @@ import com.miracle.entity.Admin;
 import com.miracle.entity.AdminExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author Miracle
  */
+@Repository
 public interface AdminMapper {
     long countByExample(AdminExample example);
 

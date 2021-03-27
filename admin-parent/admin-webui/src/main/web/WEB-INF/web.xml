@@ -6,7 +6,7 @@
     <!--ContextLoaderListener-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring-persist-*.xml</param-value>
+        <param-value>classpath:spring-persist-tx.xml</param-value>
     </context-param>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -47,6 +47,12 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcherServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <!--<url-pattern>/</url-pattern>-->
+        <!--优点1:静态资源.css .js .png 等完全不经过SpringMVC,不需要特别处理-->
+        <!--优点2:可以实现伪静态的效果.表面看起来是访问html,但是实际上是经过Java-->
+        <!--伪静态作用:更加安全 \ 有利于SEO的优化-->
+        <!--缺点:不符合RESTful风格-->
+        <url-pattern>*.html</url-pattern>
+        <url-pattern>*.json</url-pattern>
     </servlet-mapping>
 </web-app>

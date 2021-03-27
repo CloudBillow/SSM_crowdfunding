@@ -1,10 +1,13 @@
 package com.miracle.service.impl;
 
 import com.miracle.entity.Admin;
+import com.miracle.entity.AdminExample;
 import com.miracle.mapper.AdminMapper;
 import com.miracle.service.api.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author Miracle
@@ -20,5 +23,10 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public void saveAdmin(Admin admin) {
         adminMapper.insert(admin);
+    }
+
+    @Override
+    public List<Admin> getAll() {
+        return adminMapper.selectByExample(new AdminExample());
     }
 }
